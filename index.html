@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.common.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: ''
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:[]
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            show:false
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['4月4日','4月5日','4月6日','4月7日','4月8日','4月9日','4月10日'],
+            axisLine:{ //x坐标线
+                show:false,
+                lineStyle:{
+                    color:'#7f818c',
+                    width:1,
+                    type:'dashed'
+                }
+            },
+            axisTick:{
+                length:4,
+                lineStyle:{
+                    color:'#7f818c'
+                }
+            },
+            axisLabel:{
+                show:true,
+                textStyle:{
+                    color:'#7f818c'
+                }
+            },
+            splitLine:{//田字格间隔点
+                show:false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisLine:{show:false},
+            axisTick:{show:false}
+        },
+        color:['#1fbdd3','#8ddde9','#fad16e','#eedaaa','#3d8fff','#9ec7ff','#e86ba2','#f6c4da'],
+        series: [
+            {
+                name:'邮件营销',
+                type:'line',
+                stack: '总量',
+                data:[120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name:'联盟广告',
+                type:'line',
+                stack: '总量',
+                data:[220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name:'视频广告',
+                type:'line',
+                stack: '总量',
+                data:[150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name:'直接访问',
+                type:'line',
+                stack: '总量',
+                data:[320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name:'搜索引擎',
+                type:'line',
+                stack: '总量',
+                data:[820, 932, 901, 934, 1290, 1330, 1320]
+            },
+            {
+                name:'搜索引擎2',
+                type:'line',
+                stack: '总量',
+                data:[920, 732, 981, 834, 1190, 1430, 1220]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
