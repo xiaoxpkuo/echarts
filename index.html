@@ -19,7 +19,17 @@
             text: ''
         },
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            /*formatter: function(params, ticket, callback){
+                console.log(params);
+                return params[0].name+'<br/>'+params[0].seriesName+':'+params[0].data;
+            },*/
+            backgroundColor:'#fff',
+            borderWidth:1,
+            borderColor:'#d5d5d5',
+            textStyle:{
+                color:'#777777'
+            }
         },
         legend: {
             data:[]
@@ -48,60 +58,67 @@
             axisTick:{
                 length:4,
                 lineStyle:{
-                    color:'#7f818c'
+                    color:'#ccc'
                 }
             },
-            axisLabel:{
+            axisLabel:{ //x轴单位
                 show:true,
                 textStyle:{
                     color:'#7f818c'
                 }
             },
-            splitLine:{//田字格间隔点
+            splitLine:{//田字格间隔线
                 show:false
             }
         },
         yAxis: {
             type: 'value',
             axisLine:{show:false},
-            axisTick:{show:false}
+            axisTick:{show:false},
+            axisLabel:{ //轴单位
+                show:true,
+                textStyle:{
+                    color:'#9d9fa8'
+                }
+            }
+
         },
         color:['#1fbdd3','#8ddde9','#fad16e','#eedaaa','#3d8fff','#9ec7ff','#e86ba2','#f6c4da'],
         series: [
             {
                 name:'邮件营销',
                 type:'line',
-                stack: '总量',
+                /*symbolSize:'6',*/
+                /*lineStyle:{
+                    normal:{
+                      color:'#ff0000'
+                    }
+                },*/
                 data:[120, 132, 101, 134, 90, 230, 210]
             },
             {
                 name:'联盟广告',
                 type:'line',
-                stack: '总量',
                 data:[220, 182, 191, 234, 290, 330, 310]
             },
             {
                 name:'视频广告',
                 type:'line',
-                stack: '总量',
                 data:[150, 232, 201, 154, 190, 330, 410]
             },
             {
                 name:'直接访问',
                 type:'line',
-                stack: '总量',
                 data:[320, 332, 301, 334, 390, 330, 320]
             },
             {
                 name:'搜索引擎',
                 type:'line',
-                stack: '总量',
                 data:[820, 932, 901, 934, 1290, 1330, 1320]
             },
             {
                 name:'搜索引擎2',
                 type:'line',
-                stack: '总量',
                 data:[920, 732, 981, 834, 1190, 1430, 1220]
             }
         ]
@@ -109,6 +126,8 @@
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    console.log(myChart.getOption())
+
 </script>
 </body>
 </html>
